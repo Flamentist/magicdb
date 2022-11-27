@@ -1,0 +1,26 @@
+{
+    "name": "flamento/magicdb",
+    "description": "A database manager that you can attach to your Laravel application.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Darwin Marcelo",
+            "email": "akosiyawin@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Flamento\\MagicDB\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Flamento\\MagicDB\\MagicDBServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}
