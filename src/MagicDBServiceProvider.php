@@ -2,6 +2,8 @@
 
 namespace Flamento\MagicDB;
 
+use Flamento\MagicDB\Console\Commands\MagicDBBackup;
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\ServiceProvider;
 
 class MagicDBServiceProvider extends ServiceProvider
@@ -21,6 +23,14 @@ class MagicDBServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../config/magicdb.php' => config_path('magicdb.php'),
         ], 'magicdb-config');
+
+
+        /* Call Scheduler */
+        $this->callAfterResolving(Schedule::class, function (Schedule $schedule) {
+            if (config('magicdb.backup_daily')) {
+                $schedule->command('magicdb:backup')->daily();
+            }
+        });
     }
 
     /**
@@ -34,5 +44,9 @@ class MagicDBServiceProvider extends ServiceProvider
             __DIR__ . '/../config/magicdb.php',
             'magicdb'
         );
+
+        $this->commands([
+            MagicDBBackup::class,
+        ]);
     }
 }
