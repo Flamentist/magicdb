@@ -10,6 +10,10 @@ Magic DB is a database manager that you can easily integrate to your Laravel app
 - Automatic Daily Backup of your database (.gzip file).
 - Download a backup copy of your database.
 
+![Magic DB Login Page](https://i.postimg.cc/dVxccgMM/login.png)
+
+![Magic DB Table View](https://i.postimg.cc/zfHZzp5y/table.png)
+
 ## Installation
 
 The recommended way to install Magic DB is via
